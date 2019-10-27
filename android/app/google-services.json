@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "313668347680",
+    "firebase_url": "https://datn-learn-flutter.firebaseio.com",
+    "project_id": "datn-learn-flutter",
+    "storage_bucket": "datn-learn-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313668347680:android:6b639543c3456eaf1a5945",
+        "android_client_info": {
+          "package_name": "com.nvhung.datn_learn_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313668347680-8frqdjcbog60bdc1ikhuc242ke2hsbbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nvhung.datn_learn_flutter",
+            "certificate_hash": "47eb567923b79b2cdf38a3372a088e1ba725249f"
+          }
+        },
+        {
+          "client_id": "313668347680-t5ojncq6hhjdfsap2ijnhfiglt2mmgqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAynmf8tMOOyHLcAWT89w2wiDz5dDlBQGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313668347680-t5ojncq6hhjdfsap2ijnhfiglt2mmgqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
