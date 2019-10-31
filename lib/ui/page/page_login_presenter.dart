@@ -1,9 +1,8 @@
-import 'package:datn_learn_flutter/services/firebase_login.dart';
+//import 'package:datn_learn_flutter/services/firebase_login.dart';
 import 'package:datn_learn_flutter/status/status_login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PageLoginPresenter {
-  AuthLogin _authLogin = AuthLogin();
+//  AuthLogin _authLogin = AuthLogin();
   String userAPI;
   StatusLogin status = StatusLogin.LOG_IN;
   String email = "";

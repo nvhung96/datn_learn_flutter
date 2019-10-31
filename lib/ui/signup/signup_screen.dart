@@ -46,12 +46,8 @@ class _LoginScreenState extends State<SignupScreen> {
           _showCircularProgress(),
         ],
       ),
-
-
     );
   }
-
-
 
   Widget _showCircularProgress() {
     if (_presenter.isLoading) {
@@ -327,6 +323,7 @@ class _LoginScreenState extends State<SignupScreen> {
       }
     }
   }
+
   void diaLog(String diaLog) {
     showDialog(
         context: context,

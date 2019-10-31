@@ -157,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.blue.shade400,
                     ),
                     padding:
-                    EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+                        EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
                   ),
                   Container(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -174,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               decoration: InputDecoration(
                                   hintText: "Mật khẩu",
                                   hintStyle:
-                                  TextStyle(color: Colors.blue.shade200),
+                                      TextStyle(color: Colors.blue.shade200),
                                   border: InputBorder.none,
                                   icon: Icon(
                                     Icons.lock,
@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.blue.shade400,
                     ),
                     padding:
-                    EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
+                        EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
                   ),
                   SizedBox(
                     height: 10.0,
@@ -278,7 +278,7 @@ class _LoginScreenState extends State<LoginScreen> {
       children: <Widget>[
         RaisedButton.icon(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           color: Colors.red,
           icon: Icon(
             FontAwesomeIcons.google,
@@ -293,7 +293,7 @@ class _LoginScreenState extends State<LoginScreen> {
         SizedBox(width: 10.0),
         RaisedButton.icon(
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
           color: Colors.indigo,
           icon: Icon(
             FontAwesomeIcons.facebook,
@@ -339,11 +339,11 @@ class _LoginScreenState extends State<LoginScreen> {
   void diaLog(String diaLog) {
     showDialog(
         context: context,
-        child: new AlertDialog(
-          content: new Text(diaLog),
+        child: AlertDialog(
+          content: Text(diaLog),
           actions: <Widget>[
-            new IconButton(
-                icon: new Icon(Icons.close),
+            IconButton(
+                icon: Icon(Icons.close),
                 onPressed: () => Navigator.pop(context))
           ],
         ));
