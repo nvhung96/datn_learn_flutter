@@ -241,7 +241,7 @@ class _LoginScreenState extends State<SignupScreen> {
                         EdgeInsets.only(left: 20.0, right: 20.0, bottom: 10.0),
                   ),
                   SizedBox(
-                    height: 10.00,
+                    height: 10.0,
                   ),
                 ],
               ),
