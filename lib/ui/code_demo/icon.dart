@@ -18,21 +18,40 @@ class _DemoIconState extends State<DemoIcon> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.important_devices),
-            SizedBox(height: 40.0),
-            Icon(
-              Icons.favorite_border,
-              size: 50.0,
-            ),
-            SizedBox(height: 40.0),
-            Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 100.0,
-            )
+            icon(),
+            sizeBox(height: 40.0),
+            iconSize(),
+            sizeBox(height: 40.0),
+            iconSizeColor(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget sizeBox({double height, double width}) {
+    return SizedBox(
+      height: height != null ? height : null,
+      width: width != null ? width : null,
+    );
+  }
+
+  Widget icon() {
+    return Icon(Icons.important_devices);
+  }
+
+  Widget iconSize() {
+    return Icon(
+      Icons.favorite_border,
+      size: 50.0,
+    );
+  }
+
+  Widget iconSizeColor() {
+    return Icon(
+      Icons.favorite,
+      color: Colors.red,
+      size: 100.0,
     );
   }
 }

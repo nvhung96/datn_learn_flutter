@@ -327,6 +327,7 @@ class _LoginScreenState extends State<SignupScreen> {
   void diaLog(String diaLog) {
     showDialog(
         context: context,
+        // ignore: deprecated_member_use
         child: new AlertDialog(
           content: new Text(diaLog),
           actions: <Widget>[
