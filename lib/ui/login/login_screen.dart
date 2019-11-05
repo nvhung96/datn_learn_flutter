@@ -43,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
         widget.pageLoginPresenter.email != null) {
       _controllerTextEmail.text = widget.pageLoginPresenter.email;
       _controllerTextPassword.text = widget.pageLoginPresenter.password;
+
     }
     widget.pageLoginPresenter.setUser(userName: "", password: "");
     super.initState();

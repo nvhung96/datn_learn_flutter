@@ -1,5 +1,6 @@
 import 'package:datn_learn_flutter/model/item_listmain.dart';
 import 'package:datn_learn_flutter/ui/home/codedemo/home_codedemo_presenter.dart';
+import 'package:datn_learn_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CodeDemoScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _CodeDemoScreenState extends State<CodeDemoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _presenter.setConText(context);
     return Scaffold(
       appBar: AppBar(
         title: Text("Code Demo"),
@@ -30,11 +32,15 @@ class _CodeDemoScreenState extends State<CodeDemoScreen> {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Container(
-            child: _buildPanel(),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        color: COLOR_MAIN_CODEDEMO,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: SingleChildScrollView(
+            child: Container(
+              child: _buildPanel(),
+            ),
           ),
         ),
       ),
@@ -46,16 +52,20 @@ class _CodeDemoScreenState extends State<CodeDemoScreen> {
       expansionCallback: (int index, bool isExpanded) {
         setState(
           () {
-            _presenter.dataListManin[index].isExpanded = !isExpanded;
+            _presenter.dataListMain[index].isExpanded = !isExpanded;
           },
         );
       },
       children:
-          _presenter.dataListManin.map<ExpansionPanel>((ItemListMain item) {
+          _presenter.dataListMain.map<ExpansionPanel>((ItemListMain item) {
         return ExpansionPanel(
           headerBuilder: (BuildContext context, bool isExpanded) {
             return ListTile(
-              title: Text(item.headerValue),
+              title: Text(
+                item.headerValue,
+                style:
+                    TextStyle(color: isExpanded ? Colors.blue : Colors.black),
+              ),
             );
           },
           body: item.getBody(),

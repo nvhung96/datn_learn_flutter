@@ -4,67 +4,144 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeDemoCodePresenter {
-  List<CodeDemo> listCodeDemos = <CodeDemo>[];
-  List<ItemListMain> dataListManin = <ItemListMain>[];
+  BuildContext context;
+  List<ItemListMain> dataListMain = <ItemListMain>[];
 
-  void pushName({BuildContext context, int index}) {
-    Navigator.of(context).pushNamed("${listCodeDemos[index].widget}");
+  void pushName(String widget) {
+    Navigator.of(context).pushNamed("/$widget");
+  }
+
+  void setConText(BuildContext context) {
+    this.context = context;
   }
 
   void getPage() {
-    dataListManin
+    dataListMain
+        .add(ItemListMain(headerValue: "Widget cơ bản", body: getBasics()));
+    dataListMain
         .add(ItemListMain(headerValue: "App đầu tiên", body: getNewApp()));
-    dataListManin
-        .add(ItemListMain(headerValue: "Widget cơ bản", body: getWidget()));
-    dataListManin
-        .add(ItemListMain(headerValue: "Amination Widget", body: getWidget()));
-    listCodeDemos.add(CodeDemo(
-      title: "App Flutter",
-      subTitle: "Ứng dụng đầu tiền",
-      widget: "/helloflutter",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Text",
-      subTitle: "Hiển thị text",
-      widget: "/text",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Icon",
-      subTitle: "Hiển thị icon",
-      widget: "/icon",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Button",
-      subTitle: "Các nút bấm thao tác với ứng dụng",
-      widget: "/button",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_TextField",
-      subTitle: "nhập thông tin",
-      widget: "/textfield",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Column",
-      subTitle:
-          "Hiển thị các witged theo hướng đứng nằm trong phạm vi của witged cha",
-      widget: "/column",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Row",
-      subTitle:
-          "Hiển thị các witged theo hướng ngang nằm trong phạm vi của witged cha",
-      widget: "/row",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Checkes_Radion",
-      subTitle: "Sử dụng khi có nhiều hoặc 1 lựa chọn",
-      widget: "/check_radio",
-    ));
-    listCodeDemos.add(CodeDemo(
-      title: "Witged_Slider",
-      subTitle: "Thanh hiển thị trạng thái",
-      widget: "/slider",
-    ));
+    dataListMain.add(
+        ItemListMain(headerValue: "Layout chứa một widget", body: getLayoutContainsOneWidget()));
+    dataListMain.add(ItemListMain(
+        headerValue: "layout chứa nhiều Widget", body: getLayoutContainsALotWidget()));
+  }
+
+  Widget getBasics() {
+    return Center(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            Divider(),
+            ListTile(
+              title: Text("Appbar"),
+              subtitle: Text("Thanh hiển thị bên trên giao diện"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("appbar");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Column"),
+              subtitle: Text(
+                  "Hiển thị các witged theo hướng đứng nằm trong phạm vi của witged cha"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("column");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Row"),
+              subtitle: Text(
+                  "Hiển thị các witged theo hướng ngang nằm trong phạm vi của witged cha"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("row");
+              },
+            ),
+            ListTile(
+              title: Text("Container"),
+              subtitle: Text("Có tác dụng bao bọc 1 widget con"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("container");
+              },
+            ),
+            ListTile(
+              title: Text("Image"),
+              subtitle: Text("Hiển thị hình ảnh"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("image");
+              },
+            ),
+            ListTile(
+              title: Text("Scaffold"),
+              subtitle: Text("Khung chứa tất cả các widget con"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("scaffold");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Text"),
+              subtitle: Text("Hiển thị text"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("text");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Icon"),
+              subtitle: Text("Hiển thị icon"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("icon");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Button"),
+              subtitle: Text("Nút bấm cho người dùng tương tác"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("button");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("TextFeild"),
+              subtitle: Text("Dùng để nhập dữ liệu người dùng"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("textfield");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Checkes_Radion"),
+              subtitle: Text("Sử dụng khi có nhiều hoặc 1 lựa chọn"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("check_radio");
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Slider"),
+              subtitle: Text("Thanh hiển thị trạng thái"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushName("slider");
+              },
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget getNewApp() {
@@ -76,7 +153,9 @@ class HomeDemoCodePresenter {
               title: Text("App Flutter"),
               subtitle: Text("Ứng dụng đầu tiên"),
               trailing: Icon(Icons.favorite_border),
-              onTap: () {},
+              onTap: () {
+                pushName("helloflutter");
+              },
             )
           ],
         ),
@@ -84,75 +163,21 @@ class HomeDemoCodePresenter {
     );
   }
 
-  Widget getWidget() {
+  Widget getLayoutContainsOneWidget() {
     return Center(
       child: Container(
         child: Column(
-          children: <Widget>[
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            ),
-            Divider(),
-            ListTile(
-              title: Text("App Flutter"),
-              subtitle: Text("Ứng dụng đầu tiên"),
-              trailing: Icon(Icons.favorite_border),
-              onTap: () {},
-            )
-          ],
+          children: <Widget>[],
+        ),
+      ),
+    );
+  }
+
+  Widget getLayoutContainsALotWidget() {
+    return Center(
+      child: Container(
+        child: Column(
+          children: <Widget>[],
         ),
       ),
     );
