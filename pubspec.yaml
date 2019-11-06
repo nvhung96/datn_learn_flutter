@@ -28,6 +28,8 @@ dependencies:
   firebase_auth: ^0.14.0+5
   shared_preferences: ^0.5.3+4
   bordered_text: ^0.1.4
+  animated_floatactionbuttons: ^0.1.0
+  url_launcher: ^5.0.2
 
 
 dev_dependencies:

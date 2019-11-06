@@ -5,7 +5,7 @@ import 'package:datn_learn_flutter/ui/code_demo/basics/scaffold.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/checked_radio.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/slider.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/text_field.dart';
-import 'package:datn_learn_flutter/ui/code_demo/hello_flutter.dart';
+import 'package:datn_learn_flutter/ui/code_demo/newapp/hello_flutter.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/button.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/column.dart';
 import 'package:datn_learn_flutter/ui/code_demo/basics/icon.dart';

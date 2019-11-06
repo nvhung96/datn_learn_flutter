@@ -67,9 +67,7 @@ class _LoginScreenState extends State<SignupScreen> {
         child: ListView(
           children: <Widget>[
             SizedBox(height: 30.0),
-            _showLogoFlutter(100.0, "assets/logoflutter.png"),
-            SizedBox(height: 10.0),
-            _showTextFlutter(),
+            _showLogoFlutter(150.0),
             SizedBox(height: 10.0),
             _showLoginForm(),
             _showSignUp(),
@@ -80,25 +78,18 @@ class _LoginScreenState extends State<SignupScreen> {
     );
   }
 
-  Widget _showLogoFlutter(double size, String image) {
-    return SizedBox(
-      width: size,
-      height: size,
-      child: Container(
-        child: Image(
-          image: AssetImage(image),
-        ),
-      ),
+  Widget liss(){
+    return ListView(
+      children: <Widget>[],
     );
   }
 
-  Widget _showTextFlutter() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text("Chào mừng bạn đến với flutter",
-            style: TextStyle(color: Colors.blue, fontSize: 15.0))
-      ],
+  Widget _showLogoFlutter(double size) {
+    return FlutterLogo(
+      colors: Colors.red,
+      size: size,
+      textColor: Colors.green,
+      style: FlutterLogoStyle.stacked,
     );
   }
 

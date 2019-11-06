@@ -1,3 +1,4 @@
+import 'package:datn_learn_flutter/ui/show_code/code_view.dart';
 import 'package:flutter/material.dart';
 
 class TheoryScreen extends StatefulWidget {
@@ -19,11 +20,7 @@ class _TheoryScreen extends State<TheoryScreen> {
           )
         ],
       ),
-      body: Center(
-        child: Container(
-          child: Text("Welcom to user Theory"),
-        ),
-      ),
+      body: MyCodeView(filePath: "lib/src/pages/lists/list2.dart"),
     );
   }
 }
