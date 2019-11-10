@@ -22,6 +22,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+
   cupertino_icons: ^0.1.2
   flutter_custom_clippers: ^0.1.1
   font_awesome_flutter: ^8.4.0
@@ -30,6 +31,9 @@ dependencies:
   bordered_text: ^0.1.4
   animated_floatactionbuttons: ^0.1.0
   url_launcher: ^5.0.2
+  bottomreveal: ^1.0.0
+  cached_network_image: ^1.1.1
+  flutter_swiper: ^1.1.4
 
 
 dev_dependencies:
@@ -50,6 +54,26 @@ flutter:
   assets:
     - assets/logoflutter.png
     - assets/codedemo.png
+    - lib/ui/code_demo/basics/button.dart
+    - lib/ui/code_demo/basics/appbar.dart
+    - lib/ui/code_demo/basics/checked_radio.dart
+    - lib/ui/code_demo/basics/container.dart
+    - lib/ui/code_demo/basics/icon.dart
+    - lib/ui/code_demo/basics/Image.dart
+    - lib/ui/code_demo/basics/scaffold.dart
+    - lib/ui/code_demo/basics/slider.dart
+    - lib/ui/code_demo/basics/text.dart
+    - lib/ui/code_demo/basics/text_field.dart
+    - lib/ui/code_demo/newapp/hello_flutter.dart
+
+    - lib/ui/code_demo/layout_contains_one_widget/align.dart
+    - lib/ui/code_demo/layout_contains_one_widget/aspectratio.dart
+
+    - lib/ui/code_demo/layout_contains_alot_widget/column.dart
+    - lib/ui/code_demo/layout_contains_alot_widget/row.dart
+    - lib/ui/code_demo/layout_contains_alot_widget/flow.dart
+    - lib/ui/code_demo/layout_contains_alot_widget/layout_builder.dart
+    - lib/ui/code_demo/layout_contains_alot_widget/stack.dart
 
 
   # To add assets to your application, add an assets section, like this:

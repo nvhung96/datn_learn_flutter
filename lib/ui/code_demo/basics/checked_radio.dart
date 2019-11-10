@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CheckedRadio extends StatefulWidget {
+class DemoCheckedRadio extends StatefulWidget {
   @override
-  _CheckedRadioState createState() => _CheckedRadioState();
+  _DemoCheckedRadioState createState() => _DemoCheckedRadioState();
 }
 
-class _CheckedRadioState extends State<CheckedRadio> {
+class _DemoCheckedRadioState extends State<DemoCheckedRadio> {
   int _isRadio;
   String _textRadio;
   List<String> _listS = <String>[
