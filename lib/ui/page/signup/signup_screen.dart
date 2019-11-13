@@ -1,6 +1,6 @@
 import 'package:datn_learn_flutter/status/status_login.dart';
 import 'package:datn_learn_flutter/ui/page/page_login_presenter.dart';
-import 'package:datn_learn_flutter/ui/signup/signup_presenter.dart';
+import 'package:datn_learn_flutter/ui/page/signup/signup_presenter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 

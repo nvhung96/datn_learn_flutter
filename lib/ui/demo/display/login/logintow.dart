@@ -1,50 +1,19 @@
-import 'package:datn_learn_flutter/status/status_login.dart';
-import 'package:datn_learn_flutter/ui/login/login_presenter.dart';
-import 'package:datn_learn_flutter/ui/page/page_login_presenter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LoginScreen extends StatefulWidget {
-  final VoidCallback upDataStatus;
-  final PageLoginPresenter pageLoginPresenter;
-
-  const LoginScreen({Key key, this.upDataStatus, this.pageLoginPresenter})
-      : super(key: key);
-
+class DisplayLoginTow extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _DisplayLoginTowState createState() => _DisplayLoginTowState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _DisplayLoginTowState extends State<DisplayLoginTow> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  TextEditingController _controllerTextEmail = TextEditingController();
-  TextEditingController _controllerTextPassword = TextEditingController();
-
-  LoginPresenter _presenter = LoginPresenter();
-
-  void resetForm() {
-    _formKey.currentState.reset();
-  }
-
-  bool validateAndSave() {
-    final form = _formKey.currentState;
-    if (form.validate()) {
-      return true;
-    }
-    return false;
-  }
+  bool isPassword;
 
   @override
   void initState() {
-    if (widget.pageLoginPresenter.email != "" ||
-        widget.pageLoginPresenter.email != null) {
-      _controllerTextEmail.text = widget.pageLoginPresenter.email;
-      _controllerTextPassword.text = widget.pageLoginPresenter.password;
-    }
-    widget.pageLoginPresenter.setUser(userName: "", password: "");
+    isPassword = false;
     super.initState();
   }
 
@@ -54,19 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: <Widget>[
           _buildPageContent(context),
-          _showCircularProgress(),
         ],
       ),
-    );
-  }
-
-  Widget _showCircularProgress() {
-    if (_presenter.isLoading) {
-      return Center(child: CircularProgressIndicator());
-    }
-    return Container(
-      height: 0.0,
-      width: 0.0,
     );
   }
 
@@ -123,9 +81,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextFormField(
-                        validator: (input) =>
-                            _presenter.checkEmail(email: input),
-                        controller: _controllerTextEmail,
                         style: TextStyle(color: Colors.blue),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
@@ -151,11 +106,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           Flexible(
                             flex: 1,
                             child: TextFormField(
-                              validator: (intput) =>
-                                  _presenter.checkPassword(password: intput),
-                              controller: _controllerTextPassword,
-                              style: TextStyle(color: Colors.blue),
-                              obscureText: _presenter.isPassword,
                               decoration: InputDecoration(
                                   hintText: "Mật khẩu",
                                   hintStyle:
@@ -169,14 +119,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           IconButton(
                             icon: Icon(
-                                !_presenter.isPassword
+                                !isPassword
                                     ? Icons.visibility
                                     : Icons.visibility_off,
                                 color: Colors.blue),
                             onPressed: () {
                               setState(() {
-                                _presenter
-                                    .setIsPassword(!_presenter.isPassword);
+                                isPassword = !isPassword;
                               });
                             },
                           )
@@ -214,9 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: 150.0,
                 height: 40.0,
                 child: RaisedButton(
-                  onPressed: () {
-                    mainButtonFunction();
-                  },
+                  onPressed: () {},
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40.0)),
                   child: Text("Đăng nhập",
@@ -236,10 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FlatButton(
-          onPressed: () {
-            widget.pageLoginPresenter.setStatus(StatusLogin.SIGN_IN);
-            widget.upDataStatus();
-          },
+          onPressed: () {},
           child: Text("Đăng ký nếu bạn chưa có mật khẩu ?",
               style: TextStyle(color: Colors.blue, fontSize: 15.0)),
         )
@@ -292,46 +236,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ],
     );
-  }
-
-  Future mainButtonFunction() async {
-    if (validateAndSave()) {
-      setState(() {
-        _presenter.isLoading = true;
-      });
-      try {
-        _presenter.userAPI = await _presenter.signIn(
-            email: _controllerTextEmail.text,
-            password: _controllerTextPassword.text);
-      } catch (e) {
-        print('Error: $e');
-        diaLog("Email hoặc mật khẩu không chính xác");
-      } finally {
-        setState(() {
-          _presenter.isLoading = false;
-        });
-        if (_presenter.userAPI != null) {
-          await _presenter.setUser(
-              email: _controllerTextEmail.text,
-              password: _controllerTextPassword.text);
-          widget.pageLoginPresenter.setStatus(StatusLogin.LOGGED_IN);
-          widget.upDataStatus();
-        }
-      }
-    }
-  }
-
-  void diaLog(String diaLog) {
-    showDialog(
-        context: context,
-        // ignore: deprecated_member_use
-        child: AlertDialog(
-          content: Text(diaLog),
-          actions: <Widget>[
-            IconButton(
-                icon: Icon(Icons.close),
-                onPressed: () => Navigator.pop(context))
-          ],
-        ));
   }
 }

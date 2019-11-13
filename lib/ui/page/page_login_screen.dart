@@ -1,8 +1,8 @@
 import 'package:datn_learn_flutter/status/status_login.dart';
-import 'package:datn_learn_flutter/ui/home/home_screen.dart';
-import 'package:datn_learn_flutter/ui/login/login_screen.dart';
+import 'package:datn_learn_flutter/ui/page/home/home_screen.dart';
+import 'package:datn_learn_flutter/ui/page/login/login_screen.dart';
 import 'package:datn_learn_flutter/ui/page/page_login_presenter.dart';
-import 'package:datn_learn_flutter/ui/signup/signup_screen.dart';
+import 'package:datn_learn_flutter/ui/page/signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 
 class PageScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _PageScreenState extends State<PageScreen> {
       _pageLoginPresenter.setUser(
           userName: widget.email, password: widget.password);
     }
-    _pageLoginPresenter.setStatus(StatusLogin.LOG_IN);
+    _pageLoginPresenter.setStatus(StatusLogin.LOGGED_IN);
     super.initState();
   }
 

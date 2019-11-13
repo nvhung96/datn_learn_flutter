@@ -1,19 +1,19 @@
 import 'package:datn_learn_flutter/model/item_listmain.dart';
-import 'package:datn_learn_flutter/ui/home/codedemo/home_codedemo_presenter.dart';
+import 'package:datn_learn_flutter/ui/page/home/widget/widget_presenter.dart';
 import 'package:datn_learn_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
 
-class CodeDemoScreen extends StatefulWidget {
+class WidGetScreen extends StatefulWidget {
   @override
-  _CodeDemoScreenState createState() => _CodeDemoScreenState();
+  _WidGetScreenState createState() => _WidGetScreenState();
 }
 
-class _CodeDemoScreenState extends State<CodeDemoScreen> {
-  HomeDemoCodePresenter _presenter;
+class _WidGetScreenState extends State<WidGetScreen> {
+  WidGetPresenter _presenter;
 
   @override
   void initState() {
-    _presenter = HomeDemoCodePresenter();
+    _presenter = WidGetPresenter();
     _presenter.getPage();
     super.initState();
   }
@@ -34,7 +34,7 @@ class _CodeDemoScreenState extends State<CodeDemoScreen> {
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
-        color: COLOR_MAIN_CODEDEMO,
+        color: COLOR_MAIN_CODE_DEMO,
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: SingleChildScrollView(

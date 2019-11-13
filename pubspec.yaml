@@ -26,7 +26,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   flutter_custom_clippers: ^0.1.1
   font_awesome_flutter: ^8.4.0
-  firebase_auth: ^0.14.0+5
+  firebase_auth: ^0.14.0+8
   shared_preferences: ^0.5.3+4
   bordered_text: ^0.1.4
   animated_floatactionbuttons: ^0.1.0
@@ -34,6 +34,10 @@ dependencies:
   bottomreveal: ^1.0.0
   cached_network_image: ^1.1.1
   flutter_swiper: ^1.1.4
+  wave: ^0.0.8
+  calendar_views: ^0.5.2
+  date_utils: ^0.1.0+2
+  google_sign_in: 4.0.2
 
 
 dev_dependencies:
@@ -54,26 +58,29 @@ flutter:
   assets:
     - assets/logoflutter.png
     - assets/codedemo.png
-    - lib/ui/code_demo/basics/button.dart
-    - lib/ui/code_demo/basics/appbar.dart
-    - lib/ui/code_demo/basics/checked_radio.dart
-    - lib/ui/code_demo/basics/container.dart
-    - lib/ui/code_demo/basics/icon.dart
-    - lib/ui/code_demo/basics/Image.dart
-    - lib/ui/code_demo/basics/scaffold.dart
-    - lib/ui/code_demo/basics/slider.dart
-    - lib/ui/code_demo/basics/text.dart
-    - lib/ui/code_demo/basics/text_field.dart
-    - lib/ui/code_demo/newapp/hello_flutter.dart
+    - lib/ui/demo/widget/basics/button.dart
+    - lib/ui/demo/widget/basics/appbar.dart
+    - lib/ui/demo/widget/basics/checked_radio.dart
+    - lib/ui/demo/widget/basics/container.dart
+    - lib/ui/demo/widget/basics/icon.dart
+    - lib/ui/demo/widget/basics/Image.dart
+    - lib/ui/demo/widget/basics/scaffold.dart
+    - lib/ui/demo/widget/basics/slider.dart
+    - lib/ui/demo/widget/basics/text.dart
+    - lib/ui/demo/widget/basics/text_field.dart
+    - lib/ui/demo/widget/newapp/hello_flutter.dart
 
-    - lib/ui/code_demo/layout_contains_one_widget/align.dart
-    - lib/ui/code_demo/layout_contains_one_widget/aspectratio.dart
+    - lib/ui/demo/widget/layout_contains_one_widget/align.dart
+    - lib/ui/demo/widget/layout_contains_one_widget/aspectratio.dart
 
-    - lib/ui/code_demo/layout_contains_alot_widget/column.dart
-    - lib/ui/code_demo/layout_contains_alot_widget/row.dart
-    - lib/ui/code_demo/layout_contains_alot_widget/flow.dart
-    - lib/ui/code_demo/layout_contains_alot_widget/layout_builder.dart
-    - lib/ui/code_demo/layout_contains_alot_widget/stack.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/column.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/row.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/layout_builder.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/stack.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/listview.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/listviewbiulder.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/gridview.dart
+    - lib/ui/demo/widget/layout_contains_alot_widget/table.dart
 
 
   # To add assets to your application, add an assets section, like this:

@@ -1,16 +1,17 @@
+import 'package:datn_learn_flutter/ui/demo/code_demo/login_with_gmail/login_with_gmail.dart';
 import 'package:flutter/material.dart';
 
-class DisplayScreen extends StatefulWidget {
+class CodeDemoScreen extends StatefulWidget {
   @override
-  _DisplayScreenState createState() => _DisplayScreenState();
+  _TheoryScreen createState() => _TheoryScreen();
 }
 
-class _DisplayScreenState extends State<DisplayScreen> {
+class _TheoryScreen extends State<CodeDemoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Giao diện"),
+        title: Text("Lý thuyết"),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
@@ -19,11 +20,7 @@ class _DisplayScreenState extends State<DisplayScreen> {
           )
         ],
       ),
-      body: Center(
-        child: Container(
-          child: Text("Welcom to user Display"),
-        ),
-      ),
+      body: LoginWithGoogle(),
     );
   }
 }

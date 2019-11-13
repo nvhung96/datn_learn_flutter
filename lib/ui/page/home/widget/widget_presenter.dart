@@ -1,32 +1,44 @@
 import 'package:datn_learn_flutter/model/item_listmain.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/Image.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/appbar.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/button.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/checked_radio.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/container.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/icon.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_alot_widget/flow.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_alot_widget/layout_builder.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_alot_widget/row.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/scaffold.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/slider.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/text.dart';
-import 'package:datn_learn_flutter/ui/code_demo/basics/text_field.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_alot_widget/column.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_alot_widget/stack.dart';
-import 'package:datn_learn_flutter/ui/code_demo/layout_contains_one_widget/align.dart';
-import 'package:datn_learn_flutter/ui/code_demo/newapp/hello_flutter.dart';
-import 'package:datn_learn_flutter/ui/show_code_demo_screen.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/Image.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/appbar.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/button.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/checked_radio.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/container.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/icon.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/scaffold.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/slider.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/text.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/basics/text_field.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/column.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/flow.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/gridview.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/layout_builder.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/listview.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/listviewbiulder.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/row.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/stack.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_alot_widget/table.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/layout_contains_one_widget/align.dart';
+import 'package:datn_learn_flutter/ui/demo/widget/newapp/hello_flutter.dart';
+import 'package:datn_learn_flutter/ui/show_code/show_code_screen.dart';
 import 'package:datn_learn_flutter/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeDemoCodePresenter {
+class WidGetPresenter {
   BuildContext context;
   List<ItemListMain> dataListMain = <ItemListMain>[];
 
   void pushName(String widget) {
     Navigator.of(context).pushNamed("/$widget");
+  }
+
+  Future pushCode({Widget codeDemo, String path}) async {
+    Navigator.push(
+        context,
+        new MaterialPageRoute(
+            builder: (BuildContext context) =>
+                new ShowCodeDemo(codeDemo: codeDemo, path: path)));
   }
 
   void setConText(BuildContext context) {
@@ -57,10 +69,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Thanh hiển thị bên trên giao diện"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "AppBar",
-                    codeDemo: DemoAppBar(),
-                    path: PATH_BASICS_APPBAR);
+                pushCode(codeDemo: DemoAppBar(), path: PATH_BASICS_APPBAR);
               },
             ),
             Divider(),
@@ -70,7 +79,6 @@ class HomeDemoCodePresenter {
               trailing: Icon(Icons.favorite_border),
               onTap: () {
                 pushCode(
-                    name: "Container",
                     codeDemo: DemoContainerFlutterLogo(),
                     path: PATH_BASICS_CONTAINER);
               },
@@ -81,10 +89,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Hiển thị hình ảnh"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Image",
-                    codeDemo: DemoImage(),
-                    path: PATH_BASICS_IMAGE);
+                pushCode(codeDemo: DemoImage(), path: PATH_BASICS_IMAGE);
               },
             ),
             Divider(),
@@ -93,10 +98,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Khung chứa tất cả các widget con"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Scafflod",
-                    codeDemo: DemoScaffold(),
-                    path: PATH_BASICS_SCAFFOLD);
+                pushCode(codeDemo: DemoScaffold(), path: PATH_BASICS_SCAFFOLD);
               },
             ),
             Divider(),
@@ -105,8 +107,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Hiển thị text"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Text", codeDemo: DemoText(), path: PATH_BASICS_TEXT);
+                pushCode(codeDemo: DemoText(), path: PATH_BASICS_TEXT);
               },
             ),
             Divider(),
@@ -115,8 +116,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Hiển thị icon"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Icon", codeDemo: DemoIcon(), path: PATH_BASICS_ICON);
+                pushCode(codeDemo: DemoIcon(), path: PATH_BASICS_ICON);
               },
             ),
             Divider(),
@@ -125,10 +125,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Nút bấm cho người dùng tương tác"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Button",
-                    codeDemo: DemoButton(),
-                    path: PATH_BASICS_BUTTON);
+                pushCode(codeDemo: DemoButton(), path: PATH_BASICS_BUTTON);
               },
             ),
             Divider(),
@@ -138,9 +135,7 @@ class HomeDemoCodePresenter {
               trailing: Icon(Icons.favorite_border),
               onTap: () {
                 pushCode(
-                    name: "TextField",
-                    codeDemo: DemoTextField(),
-                    path: PATH_BASICS_TEXT_FIELD);
+                    codeDemo: DemoTextField(), path: PATH_BASICS_TEXT_FIELD);
               },
             ),
             Divider(),
@@ -150,7 +145,6 @@ class HomeDemoCodePresenter {
               trailing: Icon(Icons.favorite_border),
               onTap: () {
                 pushCode(
-                    name: "Checked_Radio",
                     codeDemo: DemoCheckedRadio(),
                     path: PATH_BASICS_CHECKED_RADIO);
               },
@@ -161,10 +155,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Thanh hiển thị trạng thái"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Slider",
-                    codeDemo: DemoSlider(),
-                    path: PATH_BASICS_SLIDER);
+                pushCode(codeDemo: DemoSlider(), path: PATH_BASICS_SLIDER);
               },
             )
           ],
@@ -184,10 +175,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Ứng dụng đầu tiên"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "App Flutter",
-                    codeDemo: DemoFlutter(),
-                    path: PATH_ONE_ALIGN);
+                pushCode(codeDemo: DemoFlutter(), path: PATH_ONE_ALIGN);
               },
             )
           ],
@@ -207,22 +195,13 @@ class HomeDemoCodePresenter {
               subtitle: Text("Align"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Align", codeDemo: DemoAlign(), path: PATH_ONE_ALIGN);
+                pushCode(codeDemo: DemoAlign(), path: PATH_ONE_ALIGN);
               },
             )
           ],
         ),
       ),
     );
-  }
-
-  Future pushCode({String name, Widget codeDemo, String path}) async {
-    Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (BuildContext context) =>
-                new ShowCodeDemo(name: name, codeDemo: codeDemo, path: path)));
   }
 
   Widget getLayoutContainsALotWidget() {
@@ -237,10 +216,7 @@ class HomeDemoCodePresenter {
                   "Hiển thị các witged theo hướng đứng nằm trong phạm vi của witged cha"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Column",
-                    codeDemo: DemoColumn(),
-                    path: PATH_A_LOT_COLUMN);
+                pushCode(codeDemo: DemoColumn(), path: PATH_A_LOT_COLUMN);
               },
             ),
             Divider(),
@@ -250,8 +226,7 @@ class HomeDemoCodePresenter {
                   "Hiển thị các witged theo hướng ngang nằm trong phạm vi của witged cha"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Row", codeDemo: DemoRow(), path: PATH_A_LOT_ROW);
+                pushCode(codeDemo: DemoRow(), path: PATH_A_LOT_ROW);
               },
             ),
             Divider(),
@@ -260,8 +235,7 @@ class HomeDemoCodePresenter {
               subtitle: Text("Chưa biết"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
-                pushCode(
-                    name: "Flow", codeDemo: DemoFlow(), path: PATH_A_LOT_FLOW);
+                pushCode(codeDemo: DemoFlow(), path: PATH_A_LOT_FLOW);
               },
             ),
             Divider(),
@@ -271,9 +245,8 @@ class HomeDemoCodePresenter {
               trailing: Icon(Icons.favorite_border),
               onTap: () {
                 pushCode(
-                    name: "LayoutBuider",
                     codeDemo: DemoLayoutBuilder(),
-                    path: PATH_A_LOT_LAYOUT_BUIDER);
+                    path: PATH_A_LOT_LAYOUT_BUILDER);
               },
             ),
             Divider(),
@@ -282,10 +255,45 @@ class HomeDemoCodePresenter {
               subtitle: Text("Xếp các Widget chồng lên nhau"),
               trailing: Icon(Icons.favorite_border),
               onTap: () {
+                pushCode(codeDemo: DemoStack(), path: PATH_A_LOT_STACK);
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("ListView"),
+              subtitle: Text("Thanh cuộn giới hạn danh sách"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushCode(codeDemo: DemoListView(), path: PATH_A_LOT_LIST_VIEW);
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("ListViewBuilder"),
+              subtitle: Text("Thanh cuộn không giới hạn danh sách"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
                 pushCode(
-                    name: "Stack",
-                    codeDemo: DemoStack(),
-                    path: PATH_A_LOT_STACK);
+                    codeDemo: DemoListViewBuilder(),
+                    path: PATH_A_LOT_LIST_VIEW_BUILDER);
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("GridView"),
+              subtitle: Text("Thanh cuộn với nhiều hàng"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushCode(codeDemo: DemoGridView(), path: PATH_A_LOT_GRID_VIEW);
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text("Table"),
+              subtitle: Text("Bảng biểu"),
+              trailing: Icon(Icons.favorite_border),
+              onTap: () {
+                pushCode(codeDemo: DemoTable(), path: PATH_A_LOT_TABLE);
               },
             ),
           ],

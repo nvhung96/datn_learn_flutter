@@ -1,8 +1,8 @@
 import 'package:datn_learn_flutter/status/status_login.dart';
-import 'package:datn_learn_flutter/ui/home/codedemo/home_codedemo_screen.dart';
-import 'package:datn_learn_flutter/ui/home/home_display_screen.dart';
-import 'package:datn_learn_flutter/ui/home/home_presenter.dart';
-import 'package:datn_learn_flutter/ui/home/home_theory_screen.dart';
+import 'package:datn_learn_flutter/ui/page/home/code/code_demo_screen.dart';
+import 'package:datn_learn_flutter/ui/page/home/display/display_screen.dart';
+import 'package:datn_learn_flutter/ui/page/home/home_presenter.dart';
+import 'package:datn_learn_flutter/ui/page/home/widget/widget_screen.dart';
 import 'package:datn_learn_flutter/ui/page/page_login_presenter.dart';
 import 'package:datn_learn_flutter/utils/constants.dart';
 import 'package:datn_learn_flutter/utils/oval-right-clipper.dart';
@@ -41,10 +41,10 @@ class _HomeScreenState extends State<HomeScreen>
         controller: _controller,
         children: <Widget>[
           Center(
-            child: TheoryScreen(),
+            child: CodeDemoScreen(),
           ),
           Center(
-            child: CodeDemoScreen(),
+            child: WidGetScreen(),
           ),
           Center(
             child: DisplayScreen(),
