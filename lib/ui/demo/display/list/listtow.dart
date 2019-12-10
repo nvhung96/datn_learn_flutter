@@ -36,6 +36,7 @@ class _DisplayListTowState extends State<DisplayListTow> {
     _list.add(ItemList(name: "Nguyễn Văn T", subName: "Mức độ hoàn thành :20"));
     _list.add(ItemList(name: "Nguyễn Văn V", subName: "Mức độ hoàn thành :21"));
     _list.add(ItemList(name: "Nguyễn Văn W", subName: "Mức độ hoàn thành :22"));
+
     super.initState();
   }
 
